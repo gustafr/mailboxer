@@ -1,0 +1,13 @@
+sv:
+  mailboxer:
+    message_mailer:
+      subject_new: "Nytt meddelande: %{subject}"
+      subject_reply: "Nytt svar: %{subject}"
+      header_new: "Du har ett nytt meddelande: %{subject}"
+      header_reply: "Du har ett nytt svar: %{subject}"
+      new_message: 'Du har fått ett nytt meddelande:'
+      reply_message: 'Du har fått ett nytt svar:'
+      visit: 'Surfa in på'
+      more_info: 'och gå till Meddelanden för mer info.'
+    notification_mailer:
+      subject: "Ny notifiering: %{subject}"
