@@ -1,10 +1,10 @@
-You have a new reply: <%= @subject %>
+<%= t('mailboxer.message_mailer.header_reply', subject: @subject ) %>
 ===============================================
 
-You have received a new reply:
+<%= t('mailboxer.message_mailer.reply_message') %>
 
 -----------------------------------------------
 <%= @message.body.html_safe? ? @message.body : strip_tags(@message.body) %>
 -----------------------------------------------
 
-Visit <%= root_url %> and go to your inbox for more info.
+<%= t('mailboxer.message_mailer.visit') %> <%= root_url %> <%= t('mailboxer.message_mailer.more_info') %>
