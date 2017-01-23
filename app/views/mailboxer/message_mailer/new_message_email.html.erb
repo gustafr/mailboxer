@@ -26,8 +26,6 @@
       <center>
         <%= link_to image_tag(attachments["logo.png"].url), root_url %>
       </center>
-      <p class="text-center"><small> <%= link_to t('user_mailer.defaults.booking_id', id: @reservation.id), product_reservation_url(@product, @reservation) %> </small></p>
-      <h6><%= t('user_mailer.defaults.thank_you', name: @user.first_name) %> <%= t('user_mailer.reservation_confirmation.requested_product') %> </h6>
     </columns>
   </row>
 
