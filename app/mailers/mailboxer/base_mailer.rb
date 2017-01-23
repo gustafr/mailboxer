@@ -1,5 +1,6 @@
 class Mailboxer::BaseMailer < ActionMailer::Base
   default :from => Mailboxer.default_from
+  layout 'mailer'
 
   private
 
