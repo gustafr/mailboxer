@@ -2,6 +2,9 @@ class Mailboxer::MessageMailer < Mailboxer::BaseMailer
   #Sends and email for indicating a new message or a reply to a receiver.
   #It calls new_message_email if notifing a new message and reply_message_email
   #when indicating a reply to an already created conversation.
+
+  before_filter :add_inline_attachments
+
   def send_email(message, receiver)
     if message.conversation.messages.size > 1
       reply_message_email(message,receiver)
@@ -29,4 +32,10 @@ class Mailboxer::MessageMailer < Mailboxer::BaseMailer
          :subject => t('mailboxer.message_mailer.subject_reply', :subject => @subject),
          :template_name => 'reply_message_email'
   end
+
+
+  def add_inline_attachments
+    attachments.inline["logo.png"] = File.read(Rails.root.join('app', 'assets', 'images', 'logo.png'))
+  end
+
 end
