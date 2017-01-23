@@ -1,58 +1,35 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  </head>
-  <body>
-    <h1> <%= t('mailboxer.message_mailer.header_new', subject: @subject ) %> </h1>
-    <p>
-      <%= t('mailboxer.message_mailer.new_message') %>
-    </p>
-    <blockquote>
-      <p>
+<container>
+  <row>
+    <columns small="12">
+      <center>
+        <%= link_to image_tag(attachments["logo.png"].url), root_url %>
+      </center>
+    </columns>
+  </row>
+
+  <row>
+    <columns small="12">
+      <callout>
         <%= raw @message.body %>
+      </callout>
+    </columns>
+  </row>
+
+
+  <row>
+    <columns small="12">
+      <h6 class="text-center"> <%= t('user_mailer.defaults.help') %> </h6>
+      <p class="text-center">
+        <%= t('user_mailer.defaults.read_more') %> <%= link_to t('user_mailer.defaults.faq'), page_url('faq') %> <%= t('user_mailer.defaults.or') %> <%= link_to t('user_mailer.defaults.contact'), page_url('contact') %>
       </p>
-    </blockquote>
-    <p>
-      <%= t('mailboxer.message_mailer.visit') %> <%= link_to root_url, root_url %> <%= t('mailboxer.message_mailer.more_info') %>
-    </p>
+    </columns>
+  </row>
 
-    <container>
-      <row>
-        <columns small="12">
-          <center>
-            <%= link_to image_tag(attachments["logo.png"].url), root_url %>
-          </center>
-        </columns>
-      </row>
+  <row>
+    <columns small="12">
+      <p class="text-center"> <%= t('user_mailer.defaults.thanks') %> </p>
+      <p class="text-center"> <%= link_to root_url, root_url %> </p>
+    </columns>
+  </row>
 
-      <row>
-        <columns small="12">
-          <callout>
-            <%= raw @message.body %>
-          </callout>
-        </columns>
-      </row>
-
-
-      <row>
-        <columns small="12">
-          <h6 class="text-center"> <%= t('user_mailer.defaults.help') %> </h6>
-          <p class="text-center">
-            <%= t('user_mailer.defaults.read_more') %> <%= link_to t('user_mailer.defaults.faq'), page_url('faq') %> <%= t('user_mailer.defaults.or') %> <%= link_to t('user_mailer.defaults.contact'), page_url('contact') %>
-          </p>
-        </columns>
-      </row>
-
-      <row>
-        <columns small="12">
-          <p class="text-center"> <%= t('user_mailer.defaults.thanks') %> </p>
-          <p class="text-center"> <%= link_to root_url, root_url %> </p>
-        </columns>
-      </row>
-
-    </container>
-
-  </body>
-</html>
-
+</container>
