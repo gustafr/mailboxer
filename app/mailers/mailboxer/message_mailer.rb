@@ -17,6 +17,12 @@ class Mailboxer::MessageMailer < Mailboxer::BaseMailer
   def new_message_email(message,receiver)
     @message  = message
     @receiver = receiver
+    @conversation = @message.conversation
+
+    if @conversation.reservation.present?
+      @reservation = @conversation.reservation
+    end
+
     set_subject(message)
     mail :to => receiver.send(Mailboxer.email_method, message),
          :subject => t('mailboxer.message_mailer.subject_new', :subject => @subject),
@@ -27,6 +33,11 @@ class Mailboxer::MessageMailer < Mailboxer::BaseMailer
   def reply_message_email(message,receiver)
     @message  = message
     @receiver = receiver
+    @conversation = @message.conversation
+
+    if @conversation.reservation.present?
+      @reservation = @conversation.reservation
+    end
     set_subject(message)
     mail :to => receiver.send(Mailboxer.email_method, message),
          :subject => t('mailboxer.message_mailer.subject_reply', :subject => @subject),
